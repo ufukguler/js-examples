@@ -31,9 +31,10 @@ function addFilm(e) {
     if (UI.addMovieToUI(newMovie)) {
       Storage.addToStorage(newMovie);
       UI.displayMessage("success", "the movie is added!");
+    } else {
+      UI.displayMessage("danger", "Already Exist!");
     }
     UI.clearInputs(titleElement, directorElement, urlElement);
-    UI.displayMessage("danger", "Already Exist!");
   }
   e.preventDefault();
 }
