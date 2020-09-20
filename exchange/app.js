@@ -29,6 +29,7 @@ function change() {
 function options(id) {
   const ele = document.getElementById(`${id}`);
   ele.innerHTML += `
+  <option value="EUR">EUR</option>
   <option value="CAD">CAD</option>
   <option value="HKD">HKD</option>
   <option value="ISK">ISK</option>
