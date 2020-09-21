@@ -63,24 +63,30 @@ function status(arr, turn) {
   // column
   if (arr[0][0] == turn && arr[0][1] == turn && arr[0][2] == turn) {
     return true;
-  } else if (arr[1][0] == turn && arr[1][1] == turn && arr[1][2] == turn) {
+  } 
+  else if (arr[1][0] == turn && arr[1][1] == turn && arr[1][2] == turn) {
     return true;
-  } else if (arr[2][0] == turn && arr[2][1] == turn && arr[1][2] == turn) {
+  } 
+  else if (arr[2][0] == turn && arr[2][1] == turn && arr[2][2] == turn) {
   }
   //row
   else if (arr[0][0] == turn && arr[1][0] == turn && arr[2][0] == turn) {
     return true;
-  } else if (arr[0][1] == turn && arr[1][1] == turn && arr[2][1] == turn) {
+  } 
+  else if (arr[0][1] == turn && arr[1][1] == turn && arr[2][1] == turn) {
     return true;
-  } else if (arr[0][2] == turn && arr[1][2] == turn && arr[2][2] == turn) {
+  } 
+  else if (arr[0][2] == turn && arr[1][2] == turn && arr[2][2] == turn) {
     return true;
   }
   // diagonal
   else if (arr[0][0] == turn && arr[1][1] == turn && arr[2][2] == turn) {
     return true;
-  } else if (arr[0][2] == turn && arr[1][1] == turn && arr[2][0] == turn) {
+  } 
+  else if (arr[0][2] == turn && arr[1][1] == turn && arr[2][0] == turn) {
     return true;
-  } else {
+  } 
+  else {
     return false;
   }
 }
