@@ -20,7 +20,12 @@ function clickEvent(e) {
       finish(turn);
     }
     if (arrSize(array) == 9) {
-      finish(false);
+      setMove(e, turn);
+      if (status(array, turn) == true) {
+        finish(turn);
+      } else {
+        finish(false);
+      }
     }
     turn = changeTurn(turn);
   }
@@ -40,7 +45,6 @@ function newGame() {
     }
   }
   table.addEventListener("click", clickEvent);
-  console.log(table);
   btn.addEventListener("click", newGame);
 }
 
@@ -57,54 +61,45 @@ function setMove(e, turn) {
   const column = Number(Math.floor(index / 10));
   const row = Number(index % 10);
   array[column - 1][row - 1] = turn;
+  console.log(array);
 }
 
 function status(arr, turn) {
   // column
   if (arr[0][0] == turn && arr[0][1] == turn && arr[0][2] == turn) {
     return true;
-  } 
-  else if (arr[1][0] == turn && arr[1][1] == turn && arr[1][2] == turn) {
+  } else if (arr[1][0] == turn && arr[1][1] == turn && arr[1][2] == turn) {
     return true;
-  } 
-  else if (arr[2][0] == turn && arr[2][1] == turn && arr[2][2] == turn) {
+  } else if (arr[2][0] == turn && arr[2][1] == turn && arr[2][2] == turn) {
+    return true;
   }
   //row
   else if (arr[0][0] == turn && arr[1][0] == turn && arr[2][0] == turn) {
     return true;
-  } 
-  else if (arr[0][1] == turn && arr[1][1] == turn && arr[2][1] == turn) {
+  } else if (arr[0][1] == turn && arr[1][1] == turn && arr[2][1] == turn) {
     return true;
-  } 
-  else if (arr[0][2] == turn && arr[1][2] == turn && arr[2][2] == turn) {
+  } else if (arr[0][2] == turn && arr[1][2] == turn && arr[2][2] == turn) {
     return true;
   }
   // diagonal
   else if (arr[0][0] == turn && arr[1][1] == turn && arr[2][2] == turn) {
     return true;
-  } 
-  else if (arr[0][2] == turn && arr[1][1] == turn && arr[2][0] == turn) {
+  } else if (arr[0][2] == turn && arr[1][1] == turn && arr[2][0] == turn) {
     return true;
-  } 
-  else {
+  } else {
     return false;
   }
 }
 
 function arrSize() {
   let count = 0;
-  for (let x = 0; x < 3; x++) {
-    for (let y = 0; y < 3; y++) {
-      if (array[x][y] != "") {
-        count++;
-      }
-    }
-  }
-  console.log(count);
+  for (let x = 0; x < 3; x++)
+    for (let y = 0; y < 3; y++) if (array[x][y] != "") count++;
   return count;
 }
 
 function finish(param) {
+  console.log(array);
   if (typeof param === "string") {
     result.textContent = `${param} wins!`;
     result.style.color = "green";
